@@ -51,6 +51,7 @@ function paintCanvas() {
 }
 
 function paintSnake() {
+	// adding cell color
 
 		paintCanvas();
 
@@ -77,20 +78,38 @@ function paintSnake() {
 		var newHead = {x: nx, y:ny};
 		snakeArray.unshift(newHead);
 
+		if(nx == food.x && ny == food.y) {
+			score++;
+			createFood();
+		} else {
+			snakeArray.pop();
+		}
+
 // creating fill snakeArray
 	for (var i = 0; i< snakeArray.length; i++) {
 		var paint = snakeArray[i];
 		paintFood(paint.x, paint.y);
-
-// adding cell color
 		ctx.fillStyle = "yellow";
 		ctx.fillRect(paint.x*cellWidth, paint.y*cellWidth, cellWidth, cellWidth);
 		ctx.strokeStyle = "black";
 		ctx.strokeRect(paint.x*cellWidth, paint.y*cellWidth, cellWidth, cellWidth);
-}
+		}
+
 		paintFood(food.x, food.y);
+
+		// add keydown controls to snake
+
+      $(document).keydown(function (e) {
+            var key = e.which;
+            if (key == '37' && d != 'right') d = 'left';
+            else if (key == '38' && d != 'down') d = 'up';
+            else if (key == '39' && d != 'left') d = 'right';
+            else if (key == '40' && d != 'up') d = 'down';
+        })
 }
-		paintSnake();
+
+
+
 
 function paintFood(x,y) {
 	ctx.fillStyle = "red";
