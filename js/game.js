@@ -18,8 +18,8 @@ function init() {
 	createSnake();
 	createFood();
 
-	if(typeof gameLoop != "undefined") clearInterval(game_loop);
-	gameLoop = setInterval(paintSnake, 100);
+	if(typeof gameLoop != "undefined") clearInterval(gameLoop);
+	gameLoop = setInterval(paintSnake, 80);
 }
 
 init();
@@ -29,15 +29,17 @@ function createSnake() {
 	var length = 5; // snake length
 	snakeArray = [];
 	for (var i = length-1; i>=0; i--){
+		//horizontal snake starting from the top left
 		snakeArray.push({x: i, y: 0});
 	}
 }
 
 function createFood() {
-	food = {x: Math.random()*(width-cellWidth)/cellWidth,
-			y: Math.random()*(height-cellWidth)/cellWidth
+	food = {x: Math.round(Math.random()*(width-cellWidth)/cellWidth),
+			y: Math.round(Math.random()*(height-cellWidth)/cellWidth)
 };
-// creates cell coordinates 0-44
+// creates cell x/y between 0-44
+// 45(450/10) positions accross the rows and columns
 		return food;
 }
 
@@ -55,7 +57,6 @@ function paintSnake() {
 
 		paintCanvas();
 
-		//pop the tail cell to replace the front head cell when food is eaten
 		var nx = snakeArray[0].x; // positions of head cell
 		var ny = snakeArray[0].y;
 
@@ -70,20 +71,20 @@ function paintSnake() {
 		else if(d == "up")ny--;
 		else if(d == "down")ny++;
 
-		// if(check_collision(nx,ny,snakeArray) == true) {
-			// status = "dead";
-			// return;
-		// }
-
-		var newHead = {x: nx, y:ny};
-		snakeArray.unshift(newHead);
-
+		if(checkCollision(nx,ny,snakeArray)) {
+			//restarts
+			init();
+		}
+// if the head position matches the position of the food, create a new head
 		if(nx == food.x && ny == food.y) {
-			score++;
+			var tail = {x: nx, y: ny};
 			createFood();
 		} else {
-			snakeArray.pop();
+			var tail = snakeArray.pop();
+			tail.x = nx; tail.y = ny;
 		}
+				snakeArray.unshift(tail);
+
 
 // creating fill snakeArray
 	for (var i = 0; i< snakeArray.length; i++) {
@@ -98,7 +99,6 @@ function paintSnake() {
 		paintFood(food.x, food.y);
 
 		// add keydown controls to snake
-
       $(document).keydown(function (e) {
             var key = e.which;
             if (key == '37' && d != 'right') d = 'left';
@@ -109,8 +109,6 @@ function paintSnake() {
 }
 
 
-
-
 function paintFood(x,y) {
 	ctx.fillStyle = "red";
 	ctx.fillRect(x*cellWidth, y*cellWidth, cellWidth, cellWidth);
@@ -118,5 +116,13 @@ function paintFood(x,y) {
 	ctx.strokeRect(x*cellWidth, y*cellWidth, cellWidth, cellWidth);
 }
 
+function checkCollision(x,y,array) {
+	 for (var i = 0; i<array.length; i++) {
+	 		if(array[i].x == x && array[i].y == y)
+	 			return true;
+			}
+	 			return false;
+	 
+}
 	
 });
