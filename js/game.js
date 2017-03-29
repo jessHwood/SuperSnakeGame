@@ -11,13 +11,16 @@ var cellWidth = 10;
 var food; 
 var snakeArray;
 var d; //default direction
+var score = 0;
+var showScore = $('#score');
+
+$('#score').html(score);
 
 function init() {
 	d = "right"; 
 	paintCanvas();
 	createSnake();
 	createFood();
-
 	if(typeof gameLoop != "undefined") clearInterval(gameLoop);
 	gameLoop = setInterval(paintSnake, 80);
 }
@@ -72,6 +75,7 @@ function paintSnake() {
 		else if(d == "down")ny++;
 
 		if(nx == -1 || nx == width/cellWidth || ny == -1 || ny == height/cellWidth || checkCollision(nx,ny,snakeArray)) {
+			alert("Whoops, try again!");
 			//restarts
 			init();
 		}
@@ -79,6 +83,8 @@ function paintSnake() {
 		if(nx == food.x && ny == food.y) {
 			var tail = {x: nx, y: ny};
 			createFood();
+			score += 1;
+			$('#score').html(score);
 		} else {
 			var tail = snakeArray.pop();
 			tail.x = nx; tail.y = ny;

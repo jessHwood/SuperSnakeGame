@@ -1,0 +1,25 @@
+#scoreboard {
+	float: right;
+	padding: 20px;
+	margin-top: 10%;
+	margin-right: 20%;
+	background: black;
+	color: yellow;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#canvas {
+  position: absolute;
+  top: 15%;
+  left: 35%;
+}
