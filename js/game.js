@@ -1,31 +1,53 @@
 $(document).ready(function(){
 
 // canvas variables
-var canvas = $("#canvas")[0];
+var canvas = $(".canvas")[0];
 var ctx =  canvas.getContext("2d");
-var width = $('#canvas').width();
-var height = $('#canvas').height();
+var width = $('.canvas').width();
+var height = $('.canvas').height();
 
 
 var cellWidth = 10;
 var food; 
 var snakeArray;
 var d; //default direction
-var score = 0;
+var score;
 var showScore = $('#score');
 
 $('#score').html(score);
 
+paintCanvas();
+
+$(document).keydown(function (e) {
+var key = e.which;
+if (key == "32")
+init();
+})
+;
+// adds keydown function to snake
+      $(document).keydown(function (e) {
+            var key = e.which;
+            if (key == '37' && d != 'right') d = 'left';
+            else if (key == '38' && d != 'down') d = 'up';
+            else if (key == '39' && d != 'left') d = 'right';
+            else if (key == '40' && d != 'up') d = 'down';
+        });
+
 function init() {
 	d = "right"; 
-	paintCanvas();
+	score = 0;
+	play();
 	createSnake();
 	createFood();
-	if(typeof gameLoop != "undefined") clearInterval(gameLoop);
-	gameLoop = setInterval(paintSnake, 80);
 }
 
-init();
+
+function play() {
+
+	if (typeof gameLoop != "undefined")
+		clearInterval(gameLoop);
+		gameLoop = setInterval(paintSnake, 80);
+}
 
 // making the snake
 function createSnake() {
@@ -49,7 +71,7 @@ function createFood() {
 
 function paintCanvas() {
 	//canvas styling
-	ctx.fillStyle = "black";
+	ctx.fillStyle = "rgba(32,45,51,1)";
 	ctx.fillRect(0,0,width,height);
 	ctx.strokeStyle = "yellow";
 	ctx.strokeRect(0,0,width,height);
@@ -75,19 +97,24 @@ function paintSnake() {
 		else if(d == "down")ny++;
 
 		if(nx == -1 || nx == width/cellWidth || ny == -1 || ny == height/cellWidth || checkCollision(nx,ny,snakeArray)) {
-			alert("Whoops, try again!");
+			// alert("Game Over your score is " + score);
 			//restarts
 			init();
+			play();
+			$('#score').html(score);
+			return;
+
 		}
 // if the head position matches the position of the food, create a new head
 		if(nx == food.x && ny == food.y) {
 			var tail = {x: nx, y: ny};
+			score ++;
 			createFood();
-			score += 1;
 			$('#score').html(score);
 		} else {
 			var tail = snakeArray.pop();
-			tail.x = nx; tail.y = ny;
+			tail.x = nx; 
+			tail.y = ny;
 		}
 				snakeArray.unshift(tail);
 
@@ -104,14 +131,6 @@ function paintSnake() {
 
 		paintFood(food.x, food.y);
 
-		// add keydown controls to snake
-      $(document).keydown(function (e) {
-            var key = e.which;
-            if (key == '37' && d != 'right') d = 'left';
-            else if (key == '38' && d != 'down') d = 'up';
-            else if (key == '39' && d != 'left') d = 'right';
-            else if (key == '40' && d != 'up') d = 'down';
-        })
 }
 
 
