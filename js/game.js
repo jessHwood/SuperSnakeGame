@@ -71,7 +71,7 @@ function paintSnake() {
 		else if(d == "up")ny--;
 		else if(d == "down")ny++;
 
-		if(checkCollision(nx,ny,snakeArray)) {
+		if(nx == -1 || nx == width/cellWidth || ny == -1 || ny == height/cellWidth || checkCollision(nx,ny,snakeArray)) {
 			//restarts
 			init();
 		}
