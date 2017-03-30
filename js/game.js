@@ -41,7 +41,7 @@ function init() {
 	createSnake();
 	createFood();
 	playerChange();
-	$('#player').html(player);
+	$('#player').html(" " + player);
 	runAlert = true;
 
 }

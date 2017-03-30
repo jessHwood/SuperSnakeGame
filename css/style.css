@@ -1,46 +1,65 @@
 
 
+
+.container {
+	width: 100%;
+	background: #CADEE0;
+}
+
 body {
   height: 100%;
   width: 80%;
   margin: 0;
   padding: 0;
+  background: #CADEE0;
 }
 
 .canvas {
-  	margin: 0;
-  	display: inline;
-  	align-items: center;
-  	margin-left: 10%;
-  	margin-top: 10%;
-  	border: 5px solid #FCC50D;
+  	float: left;
+  	margin-left: 20%;
+ 
+	border: 5px solid #ABCCCF;*/
+}
+
+h1 {
+	text-align: center;
+	font-family: 'Monoton', cursive;
 }
 
 .infobox {
-	border: solid 3px #202D33;
-	color: #202D33;
+	width: 35%;
 	font-size: 16px;
+	padding: 15px;
 	float: right;
-	margin-top: 15%;
+	margin-top: 10%;
+	font-family: 'Raleway', sans-serif;
+	background-image: linear-gradient( 
+		to right, 
+		#ABCCCF, #FCC50D);
 }
 
 .scoreboard {
-	float: left;
-	padding: 10px;
-	/*margin-top: 10%;*/
-	
+	padding: 7px;
+	font-family: 'Monoton', cursive;
+	font-size: 16px;
+	display: inline-block;
+	margin-left: 10px;
 }
 
 .playerTurn {
-	float: left;
 	padding: 10px;
-	/*margin-top: 10%;*/
+	font-family: 'Monoton', cursive;
+	font-size: 16px;
+	display: inline-block;
+	margin-left: 20%;
+}
 
+.scoredisplay {
+	display: block;
 }
 
 
 .directions {
-	width: 450px;
 	margin-top: 5px;
 	padding: 5px;
 	font-style: bold;

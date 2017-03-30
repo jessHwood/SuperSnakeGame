@@ -3,27 +3,31 @@
 <head>
 	<title>SuperSnake</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Arvo|Monoton|Raleway" rel="stylesheet">
 
 </head>
 <body>
-	<div class= "infobox">
-		<div class = "directions">
-			<p>Press SpaceBar to Start Playing SuperSnake!</p> 
-			<p>Once started use the arrow keys to move SuperSnake around and make her eat the red square.</p>
-			<p>When you hit a wall or your snake body your score will appear - press spacebar to switch to the next player.</p>
-		</div>
-			<div class="playerTurn">
-				<p> Player:<span id = "player"></span></p>
+	<div class = "container">
+		<div class= "infobox">
+			<h1>SuperSnake</h1>
+			<div class = "directions">
+				<p>Press SpaceBar to Start Playing SuperSnake!</p> <hr>
+				<p>Once started use the arrow keys to move SuperSnake around and make her eat the red square.</p> <hr>
+				<p>When you hit a wall or your snake body your score will appear - press spacebar to switch to the next player.</p>
 			</div>
-			<div class="scoreboard">
-				<p>Score: <span id="score"></span></p>
-			</div>
-	</div>
-
-	<div> 
-		<canvas class="canvas" width="450" height="450">
 		</div>
-
+		<div class = "scoredisplay">
+		<div class="playerTurn">
+			<p>Player: <span id = "player"></span></p>
+		</div>
+		<div class="scoreboard">
+			<p>Score: <span id="score"></span></p>
+		</div>
+		</div>
+		<div> 
+			<canvas class="canvas" width="450" height="450">
+			</div>
+		</div>
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="js/game.js"></script>
