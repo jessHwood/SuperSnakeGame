@@ -42,6 +42,7 @@ function init() {
 	createFood();
 	playerChange();
 	$('#player').html(player);
+	runAlert = true;
 
 }
 
@@ -86,8 +87,8 @@ function paintCanvas() {
 	//canvas styling
 	ctx.fillStyle = "rgba(32,45,51,1)";
 	ctx.fillRect(0,0,width,height);
-	ctx.strokeStyle = "yellow";
-	ctx.strokeRect(0,0,width,height);
+//	ctx.strokeStyle = "yellow";
+//	ctx.strokeRect(0,0,width,height);
 }
 
 function paintSnake() {
@@ -112,8 +113,9 @@ function paintSnake() {
 		if(nx == -1 || nx == width/cellWidth || ny == -1 || ny == height/cellWidth || checkCollision(nx,ny,snakeArray)) {
 
 			while (runAlert === true) {
-				alert("Game Over!  Player " + player + "'s score is " + score + ".");
-				runAlert = false;}	
+			alert("Game Over!  Player " + player + "'s score is " + score + ".");
+			runAlert = false;}	
+			
 				return;
 			
 			//game stops, needs spacebar to start again	
@@ -136,7 +138,7 @@ function paintSnake() {
 	for (var i = 0; i< snakeArray.length; i++) {
 		var paint = snakeArray[i];
 		paintFood(paint.x, paint.y);
-		ctx.fillStyle = "yellow";
+		ctx.fillStyle = "#FCC50D";
 		ctx.fillRect(paint.x*cellWidth, paint.y*cellWidth, cellWidth, cellWidth);
 		ctx.strokeStyle = "black";
 		ctx.strokeRect(paint.x*cellWidth, paint.y*cellWidth, cellWidth, cellWidth);
