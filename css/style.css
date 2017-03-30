@@ -54,10 +54,24 @@ h1 {
 	margin-left: 20%;
 }
 
+@keyframes fade {
+    from {background-color: #ABCCCF;}
+    to {background-color: #FCC50D;}
+}
+
+.playerTurn.animated {
+	animation-name: fade;
+	animation-duration: 1s;
+	padding: 10px;
+	font-family: 'Monoton', cursive;
+	font-size: 16px;
+	display: inline-block;
+	margin-left: 20%;
+}
+
 .scoredisplay {
 	display: block;
 }
-
 
 .directions {
 	margin-top: 5px;

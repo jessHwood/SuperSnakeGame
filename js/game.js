@@ -12,18 +12,17 @@ var food;
 var snakeArray;
 var d; //default direction
 var score;
-var player = $('#player');
+var player = 2;
 var runAlert = true;
 
 $('#score').html(score = 0);
-$('#player').html(player = 1);
 paintCanvas();
 
 $(document).keydown(function (e) {
 var key = e.which;
-if (key == "32")
+if (key == "32") {
 init();
-})
+}})
 ;
 // adds keydown function to snake
       $(document).keydown(function (e) {
@@ -43,10 +42,9 @@ function init() {
 	playerChange();
 	$('#player').html(" " + player);
 	runAlert = true;
-
 }
 
-
+	
 function play() {
 
 	if (typeof gameLoop != "undefined") 
@@ -56,10 +54,14 @@ function play() {
 }
 
 function playerChange() {
+
 		if(player === 1) {
-		player = 2;
+		player ++;
+		$( ".playerTurn" ).toggleClass( "animated" );
+
 	} else if (player === 2){
-		player = 1;
+		player --;
+		$( ".playerTurn" ).toggleClass( "animated" );
 	}
 }
 
@@ -114,10 +116,11 @@ function paintSnake() {
 
 			while (runAlert === true) {
 			alert("Game Over!  Player " + player + "'s score is " + score + ".");
-			runAlert = false;}	
-			
+			runAlert = false;
+			$( ".playerTurn" ).toggleClass( "animated" );
+	}	
+				
 				return;
-			
 			//game stops, needs spacebar to start again	
 		}
 // if the head position matches the position of the food, create a new head
