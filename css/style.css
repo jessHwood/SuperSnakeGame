@@ -1,15 +1,3 @@
-.scoreboard {
-	clear: both;
-	float: right;
-	padding: 10px;
-	margin-top: 15%;
-	margin-right: 25%;
-	border: solid 3px #202D33;
-	color: #202D33;
-	font-size: 16px;
-	font-style: bold;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -21,6 +9,34 @@ body {
   padding: 0;
 }
 
+.scoreboard {
+	clear: both;
+	float: right;
+	padding: 5px;
+	/*margin-top: 15%;*/
+	margin-right: 25%;
+	border: solid 3px #202D33;
+	color: #202D33;
+	font-size: 16px;
+	font-style: bold;
+}
+
+.playerTurn {
+	clear: both;
+	float: right;
+	padding: 5px;
+	margin-top: 10%;
+	margin-right: 25%;
+	border: solid 3px #202D33;
+	color: #202D33;
+	font-size: 16px;
+	font-style: bold;
+}
+
+
+
+
+
 .canvas {
   position: absolute;
   top: 15%;
@@ -28,13 +44,16 @@ body {
 }
 
 p.directions {
-	position: absolute;
+	position: relative;
+	width: 450px;
 	top: 3%;
-	left: 39%;
-	padding: 20px;
+	left: 35%;
+	padding: 5px;
 	border: solid 3px #202D33;
 	color: #202D33;
 	font-size: 16px;
 	font-style: bold;
+	text-align: center;
+	font-size: 18px;
 
 }

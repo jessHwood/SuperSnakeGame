@@ -12,10 +12,11 @@ var food;
 var snakeArray;
 var d; //default direction
 var score;
-var showScore = $('#score');
+var player = $('#player');
+var runAlert = true;
 
-$('#score').html(score);
-
+$('#score').html(score = 0);
+$('#player').html(player = 1);
 paintCanvas();
 
 $(document).keydown(function (e) {
@@ -35,18 +36,30 @@ init();
 
 function init() {
 	d = "right"; 
-	score = 0;
+	$('#score').html(score = 0);
 	play();
 	createSnake();
 	createFood();
+	playerChange();
+	$('#player').html(player);
+
 }
 
 
 function play() {
 
-	if (typeof gameLoop != "undefined")
+	if (typeof gameLoop != "undefined") 
 		clearInterval(gameLoop);
 		gameLoop = setInterval(paintSnake, 80);
+	
+}
+
+function playerChange() {
+		if(player === 1) {
+		player = 2;
+	} else if (player === 2){
+		player = 1;
+	}
 }
 
 // making the snake
@@ -97,13 +110,13 @@ function paintSnake() {
 		else if(d == "down")ny++;
 
 		if(nx == -1 || nx == width/cellWidth || ny == -1 || ny == height/cellWidth || checkCollision(nx,ny,snakeArray)) {
-			// alert("Game Over your score is " + score);
-			//restarts
-			init();
-			play();
-			$('#score').html(score);
-			return;
 
+			while (runAlert === true) {
+				alert("Game Over!  Player " + player + "'s score is " + score + ".");
+				runAlert = false;}	
+				return;
+			
+			//game stops, needs spacebar to start again	
 		}
 // if the head position matches the position of the food, create a new head
 		if(nx == food.x && ny == food.y) {
