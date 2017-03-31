@@ -135,7 +135,7 @@ function paintSnake() {
 			tail.x = nx; 
 			tail.y = ny;
 		}
-		// puts the tail as the first cell 
+		// puts bac the tail as the head cell 
 				snakeArray.unshift(tail);
 
 
@@ -161,7 +161,7 @@ function paintCell(x,y) {
 	ctx.strokeStyle = "black";
 	ctx.strokeRect(x*cellWidth, y*cellWidth, cellWidth, cellWidth);
 }
-// check if the given x/y coordinates exist already in an array of cells or not.
+// check if the given x/y coordinates exist already in an array of cells or not
 function checkCollision(x,y,array) {
 	 for (var i = 0; i<array.length; i++) {
 	 		if(array[i].x == x && array[i].y == y)
