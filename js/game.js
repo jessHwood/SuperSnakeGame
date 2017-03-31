@@ -111,11 +111,11 @@ function paintSnake() {
 		else if(d == "left") nx--;
 		else if(d == "up")ny--;
 		else if(d == "down")ny++;
-
+		// the following checks for border collision and calls the body collision function - game ends upon these requirements
 		if(nx == -1 || nx == width/cellWidth || ny == -1 || ny == height/cellWidth || checkCollision(nx,ny,snakeArray)) {
 
 			while (runAlert === true) {
-			alert("Game Over!  Player " + player + "'s score is " + score + ".");
+			alert("Snake death!  Player " + player + "'s score is " + score + ".");
 			runAlert = false;
 			$( ".playerTurn" ).toggleClass( "animated" );
 	}	
@@ -123,42 +123,45 @@ function paintSnake() {
 				return;
 			//game stops, needs spacebar to start again	
 		}
-// if the head position matches the position of the food, create a new head
+// if the head position matches the position of the food, create a new head, add to the score, display score
 		if(nx == food.x && ny == food.y) {
 			var tail = {x: nx, y: ny};
 			score ++;
 			createFood();
 			$('#score').html(score);
+// else pop out the last cell
 		} else {
 			var tail = snakeArray.pop();
 			tail.x = nx; 
 			tail.y = ny;
 		}
+		// puts the tail as the first cell 
 				snakeArray.unshift(tail);
 
 
-// creating fill snakeArray
+// creating fill snakeArray, for each array element create/paint square using the createSnake and paintCell
 	for (var i = 0; i< snakeArray.length; i++) {
 		var paint = snakeArray[i];
-		paintFood(paint.x, paint.y);
+		paintCell(paint.x, paint.y);
+
 		ctx.fillStyle = "#FCC50D";
 		ctx.fillRect(paint.x*cellWidth, paint.y*cellWidth, cellWidth, cellWidth);
 		ctx.strokeStyle = "black";
 		ctx.strokeRect(paint.x*cellWidth, paint.y*cellWidth, cellWidth, cellWidth);
 		}
 
-		paintFood(food.x, food.y);
+		paintCell(food.x, food.y);
 
 }
 
 
-function paintFood(x,y) {
+function paintCell(x,y) {
 	ctx.fillStyle = "red";
 	ctx.fillRect(x*cellWidth, y*cellWidth, cellWidth, cellWidth);
 	ctx.strokeStyle = "black";
 	ctx.strokeRect(x*cellWidth, y*cellWidth, cellWidth, cellWidth);
 }
-
+// check if the given x/y coordinates exist already in an array of cells or not.
 function checkCollision(x,y,array) {
 	 for (var i = 0; i<array.length; i++) {
 	 		if(array[i].x == x && array[i].y == y)

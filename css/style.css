@@ -29,6 +29,7 @@ h1 {
 .infobox {
 	width: 35%;
 	font-size: 16px;
+	font-weight: 700;
 	padding: 15px;
 	float: right;
 	margin-top: 10%;
