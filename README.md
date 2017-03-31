@@ -35,3 +35,4 @@ Create the snake collision function and call that in the same place that the sna
 
 After full function of the game decided to style it with directions, used right gradient on directions div.  Moved score and player to the top of the game board so that the player can more easily see the score as they're playing.  Added some better fonts to give the game personality.  Added some CSS animation to the player change.  
 
+https://jesshwood.github.io/SuperSnakeGame/
