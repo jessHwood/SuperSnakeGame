@@ -102,10 +102,10 @@ function paintSnake() {
 		var ny = snakeArray[0].y;
 
 		//detecting edge
-		if (nx>width/cellWidth) nx =1;
-		if(nx<0) nx = width/cellWidth-1;
-		if(ny>height/cellWidth) ny = 1;
-		if(ny < 0) ny = height/cellWidth - 1;
+		// if (nx>width/cellWidth) nx =1;
+		// if(nx<0) nx = width/cellWidth-1;
+		// if(ny>height/cellWidth) ny = 1;
+		// if(ny < 0) ny = height/cellWidth - 1;
 		// snake movement and head placement
 		if(d == "right") nx++;
 		else if(d == "left") nx--;
@@ -164,11 +164,8 @@ function paintCell(x,y) {
 // check if the given x/y coordinates exist already in an array of cells or not
 function checkCollision(x,y,array) {
 	 for (var i = 0; i<array.length; i++) {
-	 		if(array[i].x == x && array[i].y == y)
-	 			return true;
+	 		return (array[i].x == x && array[i].y == y);
 			}
-	 			return false;
-	 
 }
 	
 });
