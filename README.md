@@ -2,7 +2,7 @@
 
 # [Link to my Trello](https://trello.com/b/VjQSTc0L/supersnakegame)
 
-![]("images/snakewireframe.png")
+![](images/snakewireframe.png)
 
 
 Building a classic snake game.  Upon starting the player moves the snake using the arrow keys.  The goal is to eat the red square.  Upon eating the red square the snake grows and the challenge increases, as it becomes harder for the snake to control its growing body.  The game ends when the snake collides with itself or hits a wall. 
@@ -35,3 +35,4 @@ Create the snake collision function and call that in the same place that the sna
 
 After full function of the game decided to style it with directions, used right gradient on directions div.  Moved score and player to the top of the game board so that the player can more easily see the score as they're playing.  Added some better fonts to give the game personality.  Added some CSS animation to the player change.  
 
+https://jesshwood.github.io/SuperSnakeGame/
