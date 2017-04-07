@@ -81,9 +81,9 @@ h1 {
 
 }
 
-@media (min-device-width: 320px) and (max-device-width: 480px) {
+/*@media (min-device-width: 320px) and (max-device-width: 480px) {
 	body {
 		display: block;
 		width: 100%;
 	}
-}
+}*/
