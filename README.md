@@ -2,7 +2,7 @@
 
 # [Link to my Trello](https://trello.com/b/VjQSTc0L/supersnakegame)
 
-![]("images/snakewireframe.png")
+![](images/snakewireframe.png)
 
 
 Building a classic snake game.  Upon starting the player moves the snake using the arrow keys.  The goal is to eat the red square.  Upon eating the red square the snake grows and the challenge increases, as it becomes harder for the snake to control its growing body.  The game ends when the snake collides with itself or hits a wall. 
