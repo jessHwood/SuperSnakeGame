@@ -4,20 +4,15 @@
 	<title>SuperSnake</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Monoton|Raleway:400,700,800,900" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 <body>
-	<div class = "container">
-	<!-- infobox holds the directions -->
-		<div class= "infobox">
-			<h1>SuperSnake</h1>
-			<div class = "directions">
-				<p>Press SpaceBar to Start Playing SuperSnake!</p> <hr>
-				<p>Use the arrow keys to direct SuperSnake and make her eat the red square.</p> <hr>
-				<p>Dont hit the walls or collide into your body!  Once this happens your game is over.  Your score will appear and then it's the next player's turn.</p>
-			</div>
-		</div>
+	<div class="container">
+
+	<div class="row">
+		<div class="col-md-4">
 		<!-- scoredisplay div contains the player and scoreboard -->
 		<div class = "scoredisplay">
 		<div class="playerTurn">
@@ -27,11 +22,19 @@
 			<p>Score: <span id="score"></span></p>
 		</div>
 		</div>
-		<div> 
-			<canvas class="canvas" width="450" height="450">
+			<canvas class="canvas game" width="450" height="450"></canvas>
+
+			<!-- infobox holds the directions -->
+		<div class= "infobox">
+			<div class = "directions">
+				<p>Press SpaceBar to Start Playing SuperSnake!</p> <hr>
+				<p>Use the arrow keys to direct SuperSnake and make her eat the red square.</p> <hr>
+				<p>Dont hit the walls or collide into your body!  Once this happens your game is over.  Your score will appear and then it's the next player's turn.</p>
 			</div>
 		</div>
-
+			</div>
+		</div>
+		</div>
 		<script src="js/jquery-3.2.0.min.js"></script>
 
 		<script src="js/game.js"></script>

@@ -1,25 +1,26 @@
-
-
-
-.container {
-	width: 100%;
-	background: #CADEE0;
+html {
+	width: 70%;
+	margin: auto;
 }
 
+
+/*.container {
+	width: 100%;
+	background: #CADEE0;
+	display: block;
+}*/
+
 body {
-  height: 100%;
-  width: 80%;
-  margin: 0;
-  padding: 0;
-  background: #CADEE0;
+  background: #CDEEF8;
 }
 
 .canvas {
-  	float: left;
-  	margin-left: 20%;
- 
-	border: 5px solid #ABCCCF;*/
-}
+			display: block;
+			position: absolute;
+			margin: auto;
+			top: 80px;
+			left: 55px;
+}	
 
 h1 {
 	text-align: center;
@@ -27,14 +28,17 @@ h1 {
 }
 
 .infobox {
+	width: 40%;
+	position: absolute;
+	top: 90px;
+	right: 40px;
 	font-size: 16px;
-	margin: 0, 5px;
 	font-weight: 700;
 	padding: 15px;
 	font-family: 'Raleway', sans-serif;
 	background-image: linear-gradient( 
 		to right, 
-		#ABCCCF, #FCC50D);
+		#CDEEF8, #C3D27E);
 }
 
 .scoreboard {
@@ -42,7 +46,7 @@ h1 {
 	font-family: 'Monoton', cursive;
 	font-size: 16px;
 	display: inline-block;
-	margin-left: 10px;
+	/*margin-left: 10px;*/
 }
 
 .playerTurn {
